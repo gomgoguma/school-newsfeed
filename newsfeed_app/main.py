@@ -15,7 +15,7 @@ app = FastAPI(
         docs_url='/docs',
         openapi_url='/openapi.json',
         title="뉴스피드 API",
-        version="1.0.0",
+        version="1.0.1",
         description="학교 소식을 전달하고 받아보는 '학교소식 뉴스피드'",
     )
 

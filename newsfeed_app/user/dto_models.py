@@ -11,10 +11,10 @@ class RoleEnum(str, Enum):
 
 
 class DTOSignUp(BaseModel):
-    name: constr(min_length=1, max_length=10, pattern=r'^[a-zA-Z가-힣0-9]+$', strip_whitespace=True) \
+    name: constr(min_length=1, max_length=10, pattern=r'^[a-zA-Z가-힣0-9\s]+$', strip_whitespace=True) \
         = Field(...,
                 examples=["사용자000000"],
-                description="이름(1자~10자): 특수문자,공백없이 입력해 주세요.")
+                description="이름(1자~10자): 특수문자 없이 입력해 주세요.")
     role: RoleEnum = Field(...,
                            examples=["admin"],
                            description="사용자 권한: student 또는 admin 중 하나를 정확히 입력해 주세요.")
