@@ -550,7 +550,9 @@ def test_school_page_newsfeed_search(delete_user):
     assert response.status_code == 201
 
     # 백그라운드 작업 대기(사용자 뉴스피드 추가)
-    loop = asyncio.get_event_loop()
+    loop = asyncio.new_event_loop()  # 새로운 이벤트 루프 생성
+    asyncio.set_event_loop(loop)  # 이벤트 루프 설정
+
     loop.run_until_complete((lambda: asyncio.sleep(3))())
 
     # 학교 페이지 구독 (학생)
